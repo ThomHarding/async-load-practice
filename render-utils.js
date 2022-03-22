@@ -29,3 +29,19 @@ export function renderMovieCard(movie) {
     movieEl.append(titleEl, ratingEl, releaseEl);
     return movieEl;
 }
+
+export function renderSongCard(song) {
+    const songEl = document.createElement('div');
+    const titleEl = document.createElement('p');
+    const artistEl = document.createElement('p');
+    const releaseEl = document.createElement('p');
+
+    songEl.classList.add('song-item');
+    songEl.href = `./candies/?id=${song.id}`;
+    titleEl.textContent = song.avg_rating;
+    artistEl.textContent = song.title;
+    releaseEl.textContent = song.release_date;
+
+    songEl.append(titleEl, artistEl, releaseEl);
+    return songEl;
+}
