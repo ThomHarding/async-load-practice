@@ -1,9 +1,10 @@
-import { getAllCandies, getAllMovies, getAllSongs } from './fetch-utils.js';
-import { renderCandyCard, renderMovieCard, renderSongCard } from './render-utils.js';
+import { getAllCandies, getAllColours, getAllMovies, getAllSongs } from './fetch-utils.js';
+import { renderCandyCard, renderColourCard, renderMovieCard, renderSongCard } from './render-utils.js';
 
 const candiesEl = document.querySelector('.candies');
 const moviesEl = document.querySelector('.movies');
 const songsEl = document.querySelector('.songs');
+const coloursEl = document.querySelector('.colours');
 
 window.addEventListener('load', async () => {
     const candies = await getAllCandies();
@@ -20,5 +21,10 @@ window.addEventListener('load', async () => {
     for (let song of songs) {
         let songEl = renderSongCard(song);
         songsEl.append(songEl);
+    }
+    const colours = await getAllColours();
+    for (let colour of colours) {
+        let colourEl = renderColourCard(colour);
+        coloursEl.append(colourEl);
     }
 });

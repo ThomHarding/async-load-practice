@@ -45,3 +45,19 @@ export function renderSongCard(song) {
     songEl.append(titleEl, artistEl, releaseEl);
     return songEl;
 }
+
+export function renderColourCard(colour) {
+    const colourEl = document.createElement('div');
+    const nameEl = document.createElement('p');
+    const freqEl = document.createElement('p');
+    const hexCodeEl = document.createElement('p');
+
+    colourEl.classList.add('colour-item');
+    colourEl.href = `./candies/?id=${colour.id}`;
+    nameEl.textContent = colour.name;
+    freqEl.textContent = colour.frequency + ' * 10^14 Hz';
+    hexCodeEl.textContent = colour.hexCode;
+
+    colourEl.append(nameEl, freqEl, hexCodeEl);
+    return colourEl;
+}
