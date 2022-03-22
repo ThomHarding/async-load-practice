@@ -13,3 +13,19 @@ export function renderCandyCard(candy) {
     candyEl.append(nameEl, parentEl, veganEl);
     return candyEl;
 }
+
+export function renderMovieCard(movie) {
+    const movieEl = document.createElement('div');
+    const titleEl = document.createElement('p');
+    const releaseEl = document.createElement('p');
+    const ratingEl = document.createElement('p');
+
+    movieEl.classList.add('movie-item');
+    movieEl.href = `./candies/?id=${movie.id}`; 
+    titleEl.textContent = movie.title;
+    releaseEl.textContent = movie.release_date;
+    ratingEl.textContent = movie.avg_rating;
+
+    movieEl.append(titleEl, ratingEl, releaseEl);
+    return movieEl;
+}

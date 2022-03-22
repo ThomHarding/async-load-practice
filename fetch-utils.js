@@ -10,3 +10,10 @@ export async function getAllCandies() {
         .select();
     return response.data;
 }
+
+export async function getAllMovies() {
+    const response = await client
+        .from('Movies')
+        .select();
+    return response.data;
+}
