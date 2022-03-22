@@ -1,8 +1,12 @@
-// import functions and grab DOM elements
+import { getAllCandies } from './fetch-utils.js';
+import { renderCandyCard } from './render-utils.js';
 
-// let state
+const candiesEl = document.querySelector('.candies');
 
-// set event listeners 
-  // get user input
-  // use user input to update state 
-  // update DOM to reflect the new state
+window.addEventListener('load', async () => {
+    const candies = await getAllCandies();
+    for (let candy of candies) {
+        let candyEl = renderCandyCard(candy);
+        candiesEl.append(candyEl);
+    }
+});
